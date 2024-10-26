@@ -47,9 +47,10 @@ export default function Chat() {
           navigate("/setAvatar");
         }
       }
+      setLoading(false);
     };
     fetchContacts();
-  }, [currentUser]);
+  }, [currentUser, navigate]);
 
   const handleChatChange = (chat) => {
     setCurrentChat(chat);

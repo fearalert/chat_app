@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import axios from "axios";
 import { useNavigate, Link } from "react-router-dom";
 import Logo from "../../assets/logo.svg";
@@ -33,10 +33,10 @@ export default function Login() {
   const validateForm = () => {
     const { username, password } = values;
     if (username === "") {
-      toast.error("Email and Password are required.", toastOptions);
+      toast.error("Username and Password are required.", toastOptions);
       return false;
     } else if (password === "") {
-      toast.error("Email and Password are required.", toastOptions);
+      toast.error("Username and Password are required.", toastOptions);
       return false;
     }
     return true;
@@ -50,12 +50,12 @@ export default function Login() {
         const { data } = await axios.post(loginRoute, { username, password });
         if (data.status === false) {
           toast.error(data.msg, toastOptions);
-        } else if (data.status === true) {
+        } else {
           localStorage.setItem(localStorageKey, JSON.stringify(data.user));
           navigate("/");
         }
       } catch (error) {
-        toast.error("An error occurred. Please try again.", toastOptions);
+        toast.error(error.message, toastOptions);
       }
     }
   };
@@ -64,10 +64,10 @@ export default function Login() {
     <>
       <div className={styles.container}>
         <form onSubmit={handleSubmit} className={styles.formContainer}>
-        <div className={styles.brand}>
-          <img src={Logo} alt="logo" />
-          <h1>Chat App</h1>
-        </div>
+          <div className={styles.brand}>
+            <img src={Logo} alt="logo" />
+            <h1>Chat App</h1>
+          </div>
           <input
             type="text"
             placeholder="Username"
@@ -83,7 +83,7 @@ export default function Login() {
           />
           <button type="submit">Log In</button>
           <span>
-            Don't have an account? <Link to="/register">Create Account.</Link>
+            Dont have an account? <Link to="/register">Create Account.</Link>
           </span>
         </form>
       </div>

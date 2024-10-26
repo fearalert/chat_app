@@ -14,7 +14,8 @@ const userSchema = new Schema({
         type: String,
         required: true,
         unique: true,
-        max: 50
+        max: 50,
+        match: [/.+@.+\..+/, 'Please provide a valid email address'],
     },
     password: {
         type: String,
@@ -29,6 +30,17 @@ const userSchema = new Schema({
       avatarImage: {
         type: String,
         default: "",
+      },
+      isVerified: {
+        type: Boolean,
+        default: false,
+      },
+      OTP_VerificationToken: {
+        OTP: String,
+        expires: Date,
+      },
+      refreshToken: {
+        type: String,
       },
 });
 

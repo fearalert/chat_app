@@ -1,4 +1,6 @@
-import React, { useState, useEffect } from "react";
+/* eslint-disable react/prop-types */
+
+import { useState, useEffect } from "react";
 import Logo from "../assets/logo.svg";
 import styles from './styles/Contacts.module.css';
 

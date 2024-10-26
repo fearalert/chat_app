@@ -1,4 +1,6 @@
-import React, { useState } from "react";
+/* eslint-disable react/prop-types */
+
+import { useState } from "react";
 import { BsEmojiSmileFill } from "react-icons/bs";
 import { IoMdSend } from "react-icons/io";
 import Picker from "emoji-picker-react";
@@ -13,9 +15,9 @@ export default function ChatInput({ handleSendMsg }) {
   };
 
   const handleEmojiClick = (event, emojiObject) => {
-    setMsg(prev => prev + emojiObject.emoji);
+    setMsg((prev) => prev + emojiObject.emoji);
   };
-
+  
   const sendChat = (event) => {
     event.preventDefault();
     if (msg.length > 0) {

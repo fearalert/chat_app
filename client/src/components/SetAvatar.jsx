@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import axios from "axios";
 import { Buffer } from "buffer";
 import { ToastContainer, toast } from "react-toastify";
@@ -67,7 +67,7 @@ export default function SetAvatar() {
       setIsLoading(false);
     };
     fetchAvatars();
-  }, []);
+  });
 
   return (
     <>

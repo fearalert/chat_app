@@ -22,22 +22,23 @@
   
   .emoji {
     position: relative;
-  }
-  
-  .emoji svg {
+}
+
+.emoji svg {
     font-size: 1.5rem;
     color: #ffff00c8;
     cursor: pointer;
-  }
-  
-  .emoji-picker-react {
+}
+
+.emoji-picker-react {
     position: absolute;
-    top: -350px;
+    bottom: 50px;
+    left: 0; 
     background-color: #080420;
     box-shadow: 0 5px 10px #9a86f3;
     border-color: #9a86f3;
-  }
-  
+}
+
   .emoji-scroll-wrapper::-webkit-scrollbar {
     background-color: #080420;
     width: 5px;

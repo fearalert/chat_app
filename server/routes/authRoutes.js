@@ -4,6 +4,7 @@ const {
     getAllUsers,
     setAvatar,
     logOut,
+    verifyOTP,
   } = require("../controllers/userController");
   
   const userRouter = require("express").Router();
@@ -13,5 +14,6 @@ const {
   userRouter.get("/allusers/:id", getAllUsers);
   userRouter.post("/setavatar/:id", setAvatar);
   userRouter.get("/logout/:id", logOut);
+  userRouter.post("/verify-otp", verifyOTP);
   
   module.exports = userRouter;

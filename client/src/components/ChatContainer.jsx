@@ -1,4 +1,5 @@
-import React, { useState, useEffect, useRef } from "react";
+/* eslint-disable react/prop-types */
+import { useState, useEffect, useRef } from "react";
 import ChatInput from "./ChatInput";
 import Logout from "./Logout";
 import { v4 as uuidv4 } from "uuid";
@@ -26,20 +27,24 @@ export default function ChatContainer({ currentChat, socket }) {
 
   const handleSendMsg = async (msg) => {
     const data = await JSON.parse(localStorage.getItem(import.meta.env.VITE_LOCALHOST_KEY));
-    socket.current.emit("send-msg", {
-      to: currentChat._id,
-      from: data._id,
-      msg,
-    });
     
-    await axios.post(sendMessageRoute, {
-      from: data._id,
-      to: currentChat._id,
-      message: msg,
-    });
-
-    setMessages((prev) => [...prev, { fromSelf: true, message: msg }]);
+    if (msg && msg.trim().length > 0) {
+      socket.current.emit("send-msg", {
+        to: currentChat._id,
+        from: data._id,
+        msg,
+      });
+  
+      await axios.post(sendMessageRoute, {
+        from: data._id,
+        to: currentChat._id,
+        message: msg,
+      });
+  
+      setMessages((prev) => [...prev, { fromSelf: true, message: msg }]);
+    }
   };
+  
 
   useEffect(() => {
     if (socket.current) {
@@ -47,7 +52,7 @@ export default function ChatContainer({ currentChat, socket }) {
         setArrivalMessage({ fromSelf: false, message: msg });
       });
     }
-  }, []);
+  });
 
   useEffect(() => {
     if (arrivalMessage) {

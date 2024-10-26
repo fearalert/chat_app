@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import axios from "axios";
 import { useNavigate, Link } from "react-router-dom";
 import Logo from "../../assets/logo.svg";
@@ -16,6 +16,7 @@ export default function Register() {
     draggable: true,
     theme: "dark",
   };
+  
   const [values, setValues] = useState({
     username: "",
     email: "",
@@ -67,8 +68,7 @@ export default function Register() {
         toast.error(data.msg, toastOptions);
       }
       if (data.status === true) {
-        localStorage.setItem(localStorageKey, JSON.stringify(data.user));
-        navigate("/");
+        navigate("/verify-otp");
       }
     }
   };
