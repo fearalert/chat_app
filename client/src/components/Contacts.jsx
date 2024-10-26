@@ -26,7 +26,7 @@ export default function Contacts({ contacts, changeChat }) {
         <div className={styles.container}>
           <div className={styles.brand}>
             <img src={Logo} alt="logo" />
-            <h3>snappy</h3>
+            <h3>Chat App</h3>
           </div>
           <div className={styles.contacts}>
             {contacts.map((contact, index) => (
