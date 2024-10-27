@@ -18,6 +18,7 @@ export default function Login() {
     theme: "dark",
   };
 
+
   const localStorageKey = import.meta.env.VITE_LOCALHOST_KEY;
 
   useEffect(() => {
@@ -32,10 +33,7 @@ export default function Login() {
 
   const validateForm = () => {
     const { username, password } = values;
-    if (username === "") {
-      toast.error("Username and Password are required.", toastOptions);
-      return false;
-    } else if (password === "") {
+    if (username === "" || password === "") {
       toast.error("Username and Password are required.", toastOptions);
       return false;
     }
@@ -63,6 +61,7 @@ export default function Login() {
   return (
     <>
       <div className={styles.container}>
+        {/* <button onClick={toggleTheme}>Toggle Theme</button> */}
         <form onSubmit={handleSubmit} className={styles.formContainer}>
           <div className={styles.brand}>
             <img src={Logo} alt="logo" />
@@ -83,7 +82,7 @@ export default function Login() {
           />
           <button type="submit">Log In</button>
           <span>
-            Dont have an account? <Link to="/register">Create Account.</Link>
+            Don’t have an account? <Link to="/register">Create Account.</Link>
           </span>
         </form>
       </div>

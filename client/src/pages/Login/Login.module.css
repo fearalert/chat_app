@@ -1,80 +1,105 @@
+:root {
+  --bg-color: #131324;
+  --card-bg-color: #00000076;
+  --primary-color: #6b0da5;
+  --secondary-color: #997af0;
+  --text-color: white;
+  --input-border-color: #6b0da5;
+  --input-border-focus: #997af0;
+}
+
+.light-theme {
+  --bg-color: #f0f0f0;
+  --card-bg-color: #ffffffd0;
+  --primary-color: #4e4e8f;
+  --secondary-color: #2a69ac;
+  --text-color: #333;
+  --input-border-color: #8888d0;
+  --input-border-focus: #2a69ac;
+}
+
+body {
+  background-color: var(--bg-color);
+  color: var(--text-color);
+}
+
 .container {
-    height: 100vh;
-    width: 100vw;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    gap: 1rem;
-    align-items: center;
-    background-color: #131324;
-  }
-  
-  .brand {
-    display: flex;
-    align-items: center;
-    gap: 1rem;
-    justify-content: center;
-  }
-  
-  .brand img {
-    height: 5rem;
-  }
-  
-  .brand h1 {
-    color: white;
-    text-transform: uppercase;
-  }
-  
-  .formContainer {
-    display: flex;
-    flex-direction: column;
-    gap: 2rem;
-    background-color: #00000076;
-    border-radius: 2rem;
-    padding: 4rem;
-  }
-  
-  .formContainer input {
-    background-color: transparent;
-    padding: 1rem;
-    border: 0.1rem solid #6b0da5;
-    border-radius: 0.4rem;
-    color: white;
-    width: 100%;
-    font-size: 1rem;
-    box-sizing: border-box;
-  }
-  
-  .formContainer input:focus {
-    border: 0.1rem solid #997af0;
-    outline: none;
-  }
-  
-  .formContainer button {
-    background-color: #6b0da5;
-    color: white;
-    border: none;
-    font-weight: bold;
-    cursor: pointer;
-    border-radius: 0.4rem;
-    font-size: 1rem;
-    text-transform: uppercase;
-    width: 100%;
-    padding: 1rem;
-    box-sizing: border-box;
-  }
-  
-  .formContainer button:hover {
-    background-color: #6b0da5;
-  }
-  
-  .formContainer span {
-    color: white;
-    text-align: center;
-  }
-  
-  .formContainer span a {
-    color: #6b0da5;
-    text-decoration: none;
-    font-weight: bold;
-  }
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 1rem;
+  align-items: center;
+  background-color: var(--bg-color);
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  justify-content: center;
+}
+
+.brand img {
+  height: 5rem;
+}
+
+.brand h1 {
+  color: var(--text-color);
+  text-transform: uppercase;
+}
+
+.formContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  background-color: var(--card-bg-color);
+  border-radius: 2rem;
+  padding: 4rem;
+}
+
+.formContainer input {
+  background-color: transparent;
+  padding: 1rem;
+  border: 0.1rem solid var(--input-border-color);
+  border-radius: 0.4rem;
+  color: var(--text-color);
+  width: 100%;
+  font-size: 1rem;
+  box-sizing: border-box;
+}
+
+.formContainer input:focus {
+  border: 0.1rem solid var(--input-border-focus);
+  outline: none;
+}
+
+.formContainer button {
+  background-color: var(--primary-color);
+  color: var(--text-color);
+  border: none;
+  font-weight: bold;
+  cursor: pointer;
+  border-radius: 0.4rem;
+  font-size: 1rem;
+  text-transform: uppercase;
+  width: 100%;
+  padding: 1rem;
+  box-sizing: border-box;
+}
+
+.formContainer button:hover {
+  background-color: var(--primary-color);
+}
+
+.formContainer span {
+  color: var(--text-color);
+  text-align: center;
+}
+
+.formContainer span a {
+  color: var(--primary-color);
+  text-decoration: none;
+  font-weight: bold;
+}
