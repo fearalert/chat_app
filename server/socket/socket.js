@@ -1,12 +1,10 @@
 const socket = require("socket.io");
-const cors = require("cors");
 
 require("dotenv").config();
-
 const socketconnect = (server) =>{
     const io = socket(server, {
         cors: {
-          origin: "http://localhost:5173",
+          origin: process.env.FRONT_END_URL,
           credentials: true,
         },
       });
